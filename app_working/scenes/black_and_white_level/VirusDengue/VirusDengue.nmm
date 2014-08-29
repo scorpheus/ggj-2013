@@ -1,0 +1,10 @@
+<Version=1.0>
+<Material=
+	<AlphaThreshold=0.100000>
+	<PhysicMaterial=
+		<StaticFriction=0.750000>
+		<DynamicFriction=0.500000>
+		<Restitution=0.100000>
+	>
+	<Shader="shaders/splash_particle.nsa">
+>

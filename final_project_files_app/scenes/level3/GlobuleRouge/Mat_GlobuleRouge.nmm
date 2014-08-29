@@ -1,0 +1,38 @@
+<Version=1.0>
+<Material=
+	<Specular=
+		<X=1.080000>
+		<Y=0.923294>
+		<Z=0.673412>
+	>
+	<Self=
+		<X=1.000000>
+		<Y=1.000000>
+		<Z=0.000000>
+	>
+	<Ambient=
+		<X=1.000000>
+		<Y=1.000000>
+		<Z=0.000000>
+	>
+	<Glossiness=0.500000>
+	<Opacity=5.000000>
+	<AlphaThreshold=0.100000>
+	<PhysicMaterial=
+		<StaticFriction=0.750000>
+		<DynamicFriction=0.500000>
+		<Restitution=0.100000>
+	>
+	<RenderMask=
+		<Unlit>
+		<Smoothing>
+		<NormalMapTangent>
+	>
+	<Shader="shaders/Fresnel_GR_gradient.nsa">
+	<TextureStage=
+		<Index=0>
+		<Texture="scenes/level3/Textures/fresnel_gradient.png">
+		<UV=0>
+		<Channel="None">
+	>
+>

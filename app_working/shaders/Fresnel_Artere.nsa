@@ -1,0 +1,45 @@
+<Version=1.0>
+<Shader=
+	<Input=
+		<Attribute=<Name="a_position"><Semantic="Position">>
+		<Attribute=<Name="a_normal"><Semantic="Normal">>
+		<Attribute=<Name="a_uv"><Semantic="UV0">>
+
+		<Uniform=<Name="v_clock"><Semantic="Clock"><Scope=<Vertex>>>
+		<Uniform=<Name="v_speed_float"><Semantic="MaterialOpacity"><Scope=<Vertex>>>
+		<Uniform=<Name="v_amplitude"><Semantic="MaterialGlossiness"><Scope=<Vertex>>>
+		<Uniform=<Name="v_heartbeat_tex"><Semantic="MaterialTexture1"><Scope=<Vertex>>>
+
+		<Uniform=<Name="u_speed_float"><Semantic="MaterialOpacity">>
+		<Uniform=<Name="u_amplitude"><Semantic="MaterialGlossiness">>				
+		<Uniform=<Name="u_diffuse_tex"><Semantic="MaterialTexture0">>		
+		<Uniform=<Name="u_heartbeat_tex"><Semantic="MaterialTexture1">>
+		<Uniform=<Name="u_clock"><Semantic="Clock"><Scope=<Pixel>>>
+
+		<Uniform=<Name="u_nvm"><Semantic="NormalViewMatrix">>
+	>
+	<Varying=
+		<Variable=<Name="v_uv"><Type="vec2">>
+		<Variable=<Name="v_normal"><Type="vec3">>
+	>
+	<VertexSource="
+v_uv = a_uv;
+v_normal = a_normal;
+
+//Offset - simulation battement de coeur par displacement
+vec2 v_heartSpeed = vec2(v_clock*v_speed_float, 0.75);
+vec4 v_offset = texture2D(v_heartbeat_tex, v_heartSpeed)*v_amplitude*100.0;
+%out.position% = vec4(a_position, 1.0) + vec4(v_normal, 0.0)*v_offset;
+	">
+	<PixelSource="
+
+//Offset - simulation battement de coeur par offset de texture
+vec2 heartSpeed = vec2((u_clock-0.5)*u_speed_float, 0.75);
+vec4 uv_offset = texture2D(u_heartbeat_tex, heartSpeed)*u_amplitude*0.25;
+vec4 artere_color = texture2D(u_diffuse_tex, v_uv-uv_offset);
+
+%opacity% = 1.0;
+%normal% = v_normal;
+%constant% = artere_color;
+	">
+>

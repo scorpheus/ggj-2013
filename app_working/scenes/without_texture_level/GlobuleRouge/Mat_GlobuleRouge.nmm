@@ -1,0 +1,37 @@
+<Version=1.0>
+<Material=
+	<Specular=
+		<X=1.080000>
+		<Y=0.923294>
+		<Z=0.673412>
+	>
+	<Self=
+		<X=1.000000>
+		<Y=1.000000>
+		<Z=0.000000>
+	>
+	<Ambient=
+		<X=1.000000>
+		<Y=1.000000>
+		<Z=0.000000>
+	>
+	<Glossiness=0.500000>
+	<AlphaThreshold=0.100000>
+	<PhysicMaterial=
+		<StaticFriction=0.750000>
+		<DynamicFriction=0.500000>
+		<Restitution=0.100000>
+	>
+	<RenderMask=
+		<Unlit>
+		<Smoothing>
+		<NormalMapTangent>
+	>
+	<Shader="shaders/Fresnel_GR.nsa">
+	<TextureStage=
+		<Index=0>
+		<Texture="scenes/GlobuleRouge/Globule_NM.png">
+		<UV=0>
+		<Channel="Glossiness">
+	>
+>

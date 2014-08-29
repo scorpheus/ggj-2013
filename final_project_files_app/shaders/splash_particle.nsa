@@ -1,0 +1,33 @@
+<Version=1.0>
+<Shader=
+	<Input=
+		<Attribute=<Name="a_position"><Semantic="Position">>
+		<Attribute=<Name="a_normal"><Semantic="Normal">>
+		<Attribute=<Name="a_uv"><Semantic="UV0">>
+
+		<Uniform=<Name="u_opacity_float"><Semantic="MaterialOpacity">>				
+		<Uniform=<Name="u_opacity_tex"><Semantic="MaterialTexture0">>		
+		<Uniform=<Name="u_age_tex"><Semantic="MaterialTexture1">>		
+
+		<Uniform=<Name="u_nvm"><Semantic="NormalViewMatrix">>
+	>
+	<Varying=
+		<Variable=<Name="v_uv"><Type="vec2">>
+		<Variable=<Name="v_normal"><Type="vec3">>
+	>
+	<VertexSource="
+v_uv = a_uv;
+v_normal = a_normal;
+	">
+	<PixelSource="
+vec4 c_opacity = texture2D(u_opacity_tex, v_uv);
+vec4 c_age_tex = texture2D(u_age_tex, v_uv);
+
+float	light_intensity = 1.0;
+
+%diffuse% = vec4(0.5,0.5,0.5,0.5) ; //* light_intensity;
+%opacity% = c_opacity.w * u_opacity_float * 0.125;
+%normal% = v_normal;
+%constant% = vec4(0.0,0.0,0.0,0.0); //vec4(0.1,0.1,0.1,1) * (1.0 - light_intensity);
+	">
+>

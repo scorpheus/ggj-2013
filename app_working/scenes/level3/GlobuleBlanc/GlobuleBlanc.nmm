@@ -1,0 +1,20 @@
+<Version=1.0>
+<Material=
+	<Opacity=2.000000>
+	<AlphaThreshold=0.100000>
+	<PhysicMaterial=
+		<StaticFriction=0.750000>
+		<DynamicFriction=0.500000>
+		<Restitution=0.100000>
+	>
+	<RenderMask=
+		<Unlit>
+	>
+	<Shader="shaders/Fresnel_GR_gradient.nsa">
+	<TextureStage=
+		<Index=0>
+		<Texture="scenes/level3/Textures/fresnel_gradient_03.png">
+		<UV=0>
+		<Channel="None">
+	>
+>

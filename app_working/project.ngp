@@ -1,0 +1,13 @@
+<Version=1.0>
+<Environment=
+	<Name="GGJ2013">
+	<Authors="BouboukScorpheus">
+	<Description="GGJ2013">
+	<Company="Empty Notice">
+	<ScriptUnit=
+		<ScriptPath="scripts/project.nut">
+		<Class="ProjectHandler">
+	>
+	<Include>
+	<SearchPaths>
+>
